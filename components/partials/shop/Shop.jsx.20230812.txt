@@ -1,0 +1,85 @@
+import React, { useEffect, useState } from "react";
+import ModuleShopActionsInteractivo from "~/components/partials/shop/modules/ModuleShopActionsInteractivo";
+import CustomPagination from "~/components/elements/basic/CustomPagination";
+
+let contador = 100000;
+
+const Shop = ({ children, classes, fullwidth = false, actions = true }) => {
+    const [imprime, setImprime] = useState(true);
+
+    useEffect(() => {
+        if (children.props.children != "Producto no encontrado.") {
+            //console.log("ROW : ", children.props.children);
+            /*
+            children.props.children &&
+                children.props.children.map((row, index) => {
+                    if(row.key == 18)
+                    console.log("ROW : ", row);
+                });
+                */
+        }
+    }, []);
+
+    const prueba = (data) => {
+        //if(data = 18) setImprime(false)
+    };
+
+    const cancelar = (data) => {
+        //if(data = 1)
+        //setImprime(true)
+    };
+
+    let actionsView;
+    if (actions) {
+        actionsView = (
+            <div className="ps-shop__header">
+                <div className="container">
+                    <ModuleShopActionsInteractivo />
+                </div>
+            </div>
+        );
+    }
+    if (!fullwidth) {
+        return (
+            <div className={`ps-shop ${classes}`}>
+                {actionsView}
+                {children.props.children != "Producto no encontrado."
+                    ? children.props.children &&
+                      children.props.children.map((row, index) => {
+                          if (row.key == 18) {
+                              contador = 0;
+                          } else {
+                            console.log("CONTADOR  : ", contador)
+                          }
+                      })
+                    : null}
+
+                <div className="ps-shop__content">
+                    {contador == 0 ? (
+                        children
+                    ) : (
+                        <h3>Pruebaxds sdsddddddddddds sdssssssssss</h3>
+                    )}
+                </div>
+
+                <div className="ps-shop__footer">
+                    <CustomPagination />
+                </div>
+            </div>
+        );
+    } else {
+        return (
+            <div className={`ps-shop ${classes !== undefined ? classes : ""}`}>
+                {actionsView}
+                <div className="ps-shop__content">
+                    <div className="container">{children}</div>
+                    <div className="ps-shop__footer">
+                        <CustomPagination />
+                    </div>
+                </div>
+            </div>
+        );
+    }
+};
+
+export default Shop;

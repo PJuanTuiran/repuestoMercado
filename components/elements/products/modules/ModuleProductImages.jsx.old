@@ -1,0 +1,29 @@
+import React from "react";
+import useProduct from "~/hooks/useProductInteractive";
+import Link from "next/link";
+
+const ModuleProductImages = ({ product }) => {
+
+    const { thumbnailImages, price } = useProduct();
+
+    const mostrarNombre = (dato) => {
+        alert(dato)
+        //setShowName(true);
+    };
+
+    return (
+        <div 
+            className="ps-product__images"
+            
+        >
+            <Link href="/product/[id]" as={`/product/${product.id}`}
+            onMouseEnter={() => mostrarNombre(product.id)}
+            >
+                <a className="ps-product__overlay"></a>
+            </Link>
+            {thumbnailImages(product)}
+        </div>
+    );
+};
+
+export default ModuleProductImages;

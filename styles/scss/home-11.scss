@@ -1,0 +1,75 @@
+@import "utilies/settings";
+.ps-home--11 {
+    .ps-banner--full {
+        background-color: #f0f0f0;
+        background-position: 0% center;
+
+        .ps-banner {
+            min-height: 400px;
+        }
+    }
+
+    .ps-section--black-style {
+        padding: 80px 0;
+        
+        .ps-section__body {
+            border: 3px solid $color-warning;
+            border-radius: 4px;
+            padding: 50px 0 10px;
+        }
+
+        .ps-product--standard {
+            .ps-product__price, .ps-product__title {
+                color: $color-1st;
+            }
+
+            .ps-product__del {
+                color: $color-text;
+            }
+        }
+    }
+
+    .ps-section--instagram {
+        padding: 0 0 50px;
+    }
+
+    .ps-section--newsletter {
+        padding: 30px 0 80px;
+    }
+
+    .ps-promo--section {
+        padding-top: 80px;
+    }
+
+    @media (min-width: 768px) {
+        .ps-banner--full {
+            background-position: 10% center;
+            height: calc(100vh - 36px);
+
+            .ps-banner {
+                .ps-banner__title {
+                    font-size: 60px;
+                    line-height: 70px;
+                }
+
+                .ps-banner__content {
+                    flex: 0 0 60%;
+                    width: 60%;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .ps-banner--full {
+            background-position: center;
+
+            .ps-banner {
+                .ps-banner__title {
+                    font-size: 70px;
+                    line-height: 84px;
+                }
+            }
+        }
+    }
+}

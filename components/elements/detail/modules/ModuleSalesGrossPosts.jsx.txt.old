@@ -1,0 +1,83 @@
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Chart from "chart.js/auto";
+import { CategoryScale } from "chart.js";
+import PieChart from "./PieChart";
+import LineChart from "./LineChart";
+//import "./styles.css";
+
+Chart.register(CategoryScale);
+
+export const Data = [
+    {
+      id: 1,
+      mes: "Enero",
+      unidades: 6,
+      userLost: 823
+    },
+    {
+      id: 2,
+      mes: "Febrero",
+      unidades: 11,
+      userLost: 345
+    },
+    {
+      id: 3,
+      mes: "Marzo",
+      unidades: 8,
+      userLost: 555
+    },
+    {
+      id: 4,
+      mes: "Abril",
+      unidades: 7,
+      userLost: 4555
+    },
+    {
+      id: 5,
+      mes: "Mayo",
+      unidades: 9,
+      userLost: 234
+    }
+  ];
+
+// Change your description content here
+const ModuleSalesGrossPosts = (props) => {
+    const {visitasPrd} = props;
+    const [urlImagen, setUrlImagen] = useState("https://api.aal-estate.com");
+    const [urlImagenDos, setUrlImagenDos] = useState(
+        "https://api.aal-estate.com"
+    );
+    
+    const [urlImagenTres, setUrlImagenTres] = useState(
+        "https://api.aal-estate.com"
+    );
+
+    // Lee variables generales MRP
+    const variablesGeneralesMrp = useSelector(
+        (state) => state.variablesgeneralesmrp.variablesgeneralesmrp
+    );
+
+    useEffect(() => {}, []);
+
+    const [chartData, setChartData] = useState({
+        labels: Data.map((data) => data.mes), 
+        datasets: [
+          {
+            label: "Rines para mazda",
+            data: Data.map((data) => data.unidades),
+            backgroundColor: ["rgba(75,192,192,1)","#ecf0f1","#50AF95","#f3ba2f","#2a71d0"],
+            borderColor: "black",
+            borderWidth: 2
+          }
+        ]
+      });
+
+    return (
+        <div className="ml-10 ps-product__description ps-document cajagraficasposts">
+            <LineChart chartData={chartData} />
+        </div>
+    );
+};
+
+export default ModuleSalesGrossPosts;

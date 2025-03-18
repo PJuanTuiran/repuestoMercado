@@ -1,0 +1,13 @@
+import React from 'react';
+
+function CategoryMenu(props) {
+    return (
+        <div>
+            <h3>
+            Prueba
+            </h3>
+        </div>
+    );
+}
+
+export default CategoryMenu;

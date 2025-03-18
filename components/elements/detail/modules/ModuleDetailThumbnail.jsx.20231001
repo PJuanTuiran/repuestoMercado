@@ -1,0 +1,145 @@
+import React, { useEffect, useRef, useState } from "react";
+import Slider from "react-slick";
+import Lightbox from "react-image-lightbox";
+import { baseUrl } from "~/repositories/Repository";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
+
+let long = 5;
+let itemindex = 0;
+
+const ModuleDetailThumbnail = ({ product, vertical = true }) => {
+    const [current, setCurrent] = useState(0);
+    const [currentAll, setCurrentAll] = useState(0);
+    const [imgInit, setImgInit] = useState(0);
+    const [imgEnd, setImgEnd] = useState(4);
+    const length = product.images.length;
+
+    if (product.images.length > 0) long = product.images.length;
+
+    const nextSlide = (item, control) => {
+        setCurrent(current === length - 1 ? 0 : current + 1);
+
+        let imgInicia = 0;
+        let imgFinal = 0;
+        if (control == 1) {
+            setCurrent(item);
+            if (item <= 4) {
+                imgInicia = 0;
+                imgFinal = 4;
+                setImgInit(imgInicia);
+                setImgEnd(imgFinal);
+            } else {
+                imgInicia = 5;
+                imgFinal = 10;
+                setImgInit(imgInicia);
+                setImgEnd(imgFinal);
+            }
+        } else {
+            if (current <= 4) {
+                imgInicia = 0;
+                imgFinal = 4;
+                setImgInit(imgInicia);
+                setImgEnd(imgFinal);
+            } else {
+                imgInicia = 5;
+                imgFinal = 10;
+                setImgInit(imgInicia);
+                setImgEnd(imgFinal);
+            }
+        }
+    };
+
+    const prevSlide = () => {
+        setCurrent(current === 0 ? length - 1 : current - 1);
+
+        let long = product.images.length;
+
+        let imgInicia = 0;
+        let imgFinal = 0;
+        if (current <= 4) {
+            imgInicia = 0;
+            imgFinal = 4;
+            setImgInit(imgInicia);
+            setImgEnd(imgFinal);
+        } else {
+            imgInicia = 5;
+            imgFinal = 10;
+            setImgInit(imgInicia);
+            setImgEnd(imgFinal);
+        }
+    };
+
+    if (!Array.isArray(product.images) || product.images.length <= 0) {
+        return null;
+    }
+
+    //console.log("ITEM : ", current);
+
+    return (
+        <div className="mlmenos40 mtmenos70">
+            <div className="slider">
+                <FaAngleLeft className="right-arrow" onClick={prevSlide} />
+                <FaAngleRight
+                    className="left-arrow"
+                    onClick={() => nextSlide(0, 0)}
+                />
+                {product.images &&
+                    product.images.map((slide, index) => {
+                        let image = baseUrl + slide.url;
+                        itemindex = index;
+                        return (
+                            <div
+                                className={
+                                    index === current ? "slide active" : "slide"
+                                }
+                                key={index}>
+                                {index == current && (
+                                    <img
+                                        src={image}
+                                        alt="travel image"
+                                        className="image"
+                                    />
+                                )}
+                            </div>
+                        );
+                    })}
+            </div>
+            <div className="slider margen">
+                <FaAngleLeft className="right-arrow" onClick={prevSlide} />
+                <FaAngleRight
+                    className="left-arrowdos"
+                    onClick={() => nextSlide(0, 0)}
+                />
+                <div className="mlmenos30"></div>
+                {product.images &&
+                    product.images.map((slide, index) => {
+                        let image = baseUrl + slide.url;
+
+                        return (
+                            <div key={index}>
+                                {index >= imgInit &&
+                                    index <= imgEnd &&
+                                    (index == current ? (
+                                        <img
+                                            src={image}
+                                            alt="travel imageall"
+                                            className="imageallmarcada"
+                                            onClick={() => nextSlide(index, 1)}
+                                        />
+                                    ) : (
+                                        <img
+                                            src={image}
+                                            alt="travel imageall"
+                                            className="imageall"
+                                            onClick={() => nextSlide(index, 1)}
+                                        />
+                                    ))}
+                            </div>
+                        );
+                    })}
+            </div>
+        </div>
+    );
+};
+
+export default ModuleDetailThumbnail;

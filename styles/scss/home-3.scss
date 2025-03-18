@@ -1,0 +1,233 @@
+@import "utilies/settings";
+.ps-home--3 {
+    .ps-section--banner {
+        .ps-banner__fluid {
+            position: initial;
+            .ps-banner__image {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+            }
+        }
+
+        .ps-banner__content {
+            z-index: 10;
+        }
+
+        .container-initial {
+            .ps-banner__block {
+                position: initial;
+            }
+        }
+    }
+
+    .ps-home__content {
+        padding-top: 15px;
+    }
+
+    .ps-home__row {
+        padding: 30px 0 50px;
+    }
+
+    .ps-promo {
+        padding: 30px 0 50px;
+
+        .ps-promo__banner {
+            max-height: 200px;
+            min-height: 200px;
+        }
+    }
+
+    .ps-section--featured {
+        padding: 30px 0 80px;
+    }
+
+    .ps-home3__banner {
+        background-size: cover;
+        background-position: center;
+
+        .ps-banner {
+            height: 600px;
+
+            .ps-banner__thumnail {
+                padding-top: 10px;
+                position: i;
+            }
+
+            .ps-banner__persen {
+                position: initial;
+                margin: auto;
+                width: 133px;
+                height: 133px;
+                font-size: 45px;
+                line-height: 45px;
+            }
+
+            .ps-banner__btn-group {
+                display: block;
+                margin: 20px 0 0;
+            }
+
+            .ps-banner__btn {
+                line-height: 20px;
+                color: $color-1st;
+                font-weight: 600;
+                display: block;
+                font-size: 18px;
+                margin-bottom: 15px;
+
+                img {
+                    margin-top: -5px;
+                }
+            }
+
+            .ps-banner__content {
+                height: auto;
+            }
+        }
+    }
+
+    .ps-delivery {
+        margin: 30px 0 50px;
+    }
+
+    .ps-section--sellers {
+        padding: 30px 0 50px;
+    }
+
+    .ps-section--category-horizontal {
+        padding-bottom: 50px;
+    }
+
+    .ps-section--weekdeal {
+        padding-bottom: 30px;
+    }
+
+    @media (min-width: 768px) {
+        .ps-home__row {
+            .ps-home__week-deal {
+                padding-right: 0;
+            }
+        }
+
+        .ps-home3__banner {
+            .ps-banner {
+                height: 430px;
+                min-height: 430px !important;
+
+                .ps-banner__content {
+                    width: 60%;
+                    flex: 0 0 60%;
+                }
+
+                .ps-banner__thumnail {
+                    padding-top: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex: 0 0 40%;
+                }
+            }
+        }
+
+        .ps-promo {
+            .ps-promo__banner {
+                max-height: 160px;
+                min-height: 160px;
+            }
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .ps-home3__banner {
+            .ps-banner {
+                height: 500px;
+
+                 .ps-banner__content {
+                    padding-top: 40px;
+                }
+
+                .ps-banner__btn-group {
+                    display: table;
+                    margin: 30px 0 20px;
+                }
+
+                .ps-banner__btn {
+                    display: table-cell;
+                }
+                .ps-banner__persen {
+                    margin-left: 100px;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .ps-home__row {
+            .ps-home__week-deal {
+                padding-right: 15px;
+            }
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .ps-section--banner {
+            .ps-banner {
+                height: 700px;
+            }
+
+            .ps-banner__content {
+                padding-top: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .ps-banner__shop {
+                width: fit-content;
+            }
+        }
+
+        .ps-promo {
+            .ps-promo__banner {
+                max-height: 230px;
+                min-height: 230px;
+            }
+        }
+
+        .ps-home3__banner {
+            .ps-banner {
+                .ps-banner__title {
+                    font-size: 50px;
+                    line-height: 1.2;
+                }
+
+                .ps-banner__desc {
+                    font-size: 22px;
+                }
+
+                .ps-banner__shop {
+                    font-size: 18px;
+                }
+
+                .ps-banner__content {
+                    padding-top: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+
+                .ps-banner__shop {
+                    width: fit-content;
+                }
+
+                .ps-banner__persen {
+                    margin-left: 70px;
+                }
+            }
+        }
+    }
+}

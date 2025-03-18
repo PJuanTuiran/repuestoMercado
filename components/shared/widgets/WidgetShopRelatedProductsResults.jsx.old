@@ -1,0 +1,17 @@
+import React, { useEffect } from "react";
+
+const WidgetShopRelatedProductsResults = (props) => {
+
+    let productsView;
+
+    return (
+        <div className="pt-20">
+            <div className="widget__heading tamañotextotitulocondicion">
+                Productos relacionados
+            </div>
+            <div className="widget__content">{productsView}</div>
+        </div>
+    );
+};
+
+export default WidgetShopRelatedProductsResults;

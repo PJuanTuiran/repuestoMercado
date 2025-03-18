@@ -1,0 +1,40 @@
+.ps-home--9 {
+    .ps-banner--full {
+        background-position: 65% center;
+
+        .ps-banner {
+            .ps-banner__title, .ps-banner__desc, .ps-banner__btn {
+                color: white;
+            }
+        }
+
+        .ps-banner__btn {
+            img {
+                filter: brightness(0) invert(1);
+            }
+        }
+    }
+
+    .ps-reviews--3 {
+        padding: 80px 0;
+    }
+
+    .ps-section--newsletter-full {
+        margin-bottom: 80px;
+        padding: 140px 0;
+    }
+
+    .ps-promo--mask {
+        padding-bottom: 80px;
+
+        .ps-banner__btn {
+            img {
+                filter: invert(9%) sepia(19%) saturate(9%) hue-rotate(352deg) brightness(101%) contrast(91%);
+            }
+        }
+    }
+
+    .ps-section--black-style {
+        padding: 80px 0;
+    }
+}

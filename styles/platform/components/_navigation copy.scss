@@ -1,0 +1,120 @@
+.navigation--primary {
+   position: relative;
+
+   .header__categories,
+   .header__supplies {
+      margin-right: 0px;
+   }
+
+   .navigation__menu {
+      padding-left: 10px;
+   }
+
+   .navigation__left {
+      gap: 1rem;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+      align-items: center;
+   }
+
+   .navigation__right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+   }
+
+   >.container {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+   }
+}
+
+.navigation--single {
+   position: relative;
+
+   .header__categories,
+   .header__supplies {
+      margin-right: 16px;
+   }
+
+   >.container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+   }
+}
+
+.navigation--bottom {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   padding: 15px 30px;
+   box-shadow: 1px 0 0;
+   background-color: #ffffff;
+   border-top: 1px solid $color-gray-light;
+   z-index: 999;
+
+   .cart {
+      position: relative;
+
+      span {
+         position: absolute;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         top: 0;
+         right: 0;
+         width: 18px;
+         height: 18px;
+         border-radius: 50%;
+         background-color: $color-1st;
+         transform: translateX(50%);
+         color: #fff;
+         font-size: 10px;
+      }
+   }
+
+   .navigation__item {
+      text-align: center;
+      color: $color-2nd;
+
+      i {
+         font-size: 24px;
+      }
+
+      span {
+         display: block;
+      }
+
+      &.active {
+         i {
+            color: $color-1st;
+         }
+
+         span {
+            color: $color-1st;
+         }
+      }
+   }
+
+   .navigation__content {
+      max-width: 300px;
+      margin: 0 auto;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+   }
+
+   @media screen and (min-width: 1024px) {
+      .navigation__content {
+         max-width: 600px;
+      }
+   }
+
+   @media screen and (min-width: 1200px) {
+      display: none;
+   }
+}

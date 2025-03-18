@@ -1,0 +1,243 @@
+.ps-table--responsive {
+    @media (max-width: 768px) {
+        border: none;
+        max-width: 100vw;
+
+        thead {
+            display: none;
+        }
+
+        tbody {
+            display: block;
+
+            tr {
+                display: block;
+                margin-bottom: 10px;
+
+                td[data-label] {
+                    display: grid;
+                    grid-template-columns: 150px 1fr;
+                    border: none;
+                    padding: 16px;
+                    text-transform: capitalize;
+                    border-top: 1px solid $color-gray-light;
+
+                    &:before {
+                        content: attr(data-label) ":";
+                        font-weight: 600;
+                        color: $color-heading;
+                        font-size: 14px;
+                    }
+
+                    &:first-child {
+                        border-top: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ps-table--with-border {
+    border: 1px solid $color-gray-light;
+    border-radius: 4px;
+
+    strong {
+        font-weight: 600;
+    }
+
+    .form-group--number {
+        input {
+            max-width: 110px;
+            border-radius: 50px;
+            height: 46px;
+            background-color: $color-gray-light;
+            border-color: $color-gray-light;
+            color: $color-1st;
+            font-weight: 600;
+            font-size: 14px;
+        }
+    }
+
+    thead {
+        tr {
+            th {
+                font-size: 16px;
+                font-weight: 600;
+                color: $color-1st;
+                border-bottom: 1px solid $color-gray-light;
+                background-color: transparent;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            td {
+                width: 150px;
+                color: $color-1st;
+                font-weight: 600;
+                vertical-align: middle;
+                border: none;
+                border-bottom: 1px solid $color-gray-light;
+            }
+        }
+    }
+}
+
+#table-wishlist {
+    thead {
+        tr {
+            th {
+                text-align: center;
+
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            td {
+                vertical-align: middle;
+                width: 200px;
+                text-align: center;
+
+                .ps-product--on-cart {
+                    text-align: left;
+                }
+
+                &:first-child {
+                    width: 40px;
+                    text-align: center;
+                    padding: 0;
+                }
+
+                &:nth-child(2) {
+                    width: 300px;
+                }
+
+                &:last-child {
+                    width: 100px;
+                }
+            }
+        }
+    }
+}
+
+.ps-table--compare {
+    @media screen and (min-width: 1200px) {
+        tbody {
+            tr {
+                td {
+                    vertical-align: middle;
+
+                    &:first-child {
+                        width: 250px;
+                    }
+
+                    &:last-child {
+                        width: 200px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ps-table--shopping-cart {
+    border: 1px solid $color-gray-light;
+    border-radius: 4px;
+
+    thead {
+        tr {
+            th {
+                font-size: 16px;
+                font-weight: 600;
+                color: $color-1st;
+                border-bottom: 1px solid $color-gray-light;
+                background-color: transparent;
+            }
+        }
+    }
+
+    .form-group--number {
+        input {
+            max-width: 110px;
+            border-radius: 50px;
+            height: 46px;
+            background-color: $color-gray-light;
+            border-color: $color-gray-light;
+            color: $color-1st;
+            font-weight: 600;
+            font-size: 14px;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        border: none;
+        thead {
+            tr {
+                th {
+                    border: none;
+                    padding-top: 0;
+                    padding-bottom: 10px;
+                    &:first-child {
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+        tbody {
+            border: 1px solid $color-gray-light;
+
+            tr {
+                td {
+                    width: 150px;
+                    color: $color-1st;
+                    font-weight: 600;
+                    vertical-align: middle;
+                    border: none;
+                    border-bottom: 1px solid $color-gray-light;
+
+                    &:first-child {
+                        width: auto;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        border: none;
+        .form-group--number {
+            input {
+                max-width: 200px;
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    border-right: none;
+                    border-bottom: none;
+
+                    strong {
+                        text-align: right;
+                        color: $color-1st;
+                        font-size: 14px;
+                    }
+
+                    &:first-child {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+

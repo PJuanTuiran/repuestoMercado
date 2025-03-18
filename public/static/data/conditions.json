@@ -1,0 +1,12 @@
+{
+    "conditions": [
+        {
+            "image": "/static/img/branch/brand-1.jpg",
+            "text": "Nuevo"
+        },
+        {
+            "image": "/static/img/branch/brand-2.jpg",
+            "text": "Usado"
+        }
+    ]
+}

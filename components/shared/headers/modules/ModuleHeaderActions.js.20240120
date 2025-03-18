@@ -1,0 +1,281 @@
+import React, { useEffect, useState } from "react";
+import { toggleDrawer } from "~/store/app/action";
+import { useDispatch, connect, useSelector } from "react-redux";
+import Link from "next/link";
+import { Modal, Button, Row, Col, Dropdown } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { getDataWishList } from "../../../../store/datawishlist/action";
+import { getDataShoppingCart } from "../../../../store/datashoppingcart/action";
+import { useRouter } from "next/router";
+import axios from "axios";
+import { URL_BD_MR } from "../../../../helpers/Constants";
+import AppMenuUser from "../../../../pages/LateralMenu/AppMenuUser";
+import { Box, Grid } from "@mui/material";
+import CloseIcon from "@material-ui/icons/Close";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import { getUserMenuPrimary } from "../../../../store/usermenuprimary/action";
+import { getUserMenu } from "../../../../store/usermenu/action";
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+
+//Firebase
+import firebase from "../../../../utilities/firebase";
+import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+} from "firebase/auth";
+
+import {
+    caculateArrayQuantity,
+    calculateCartQuantity,
+} from "~/utilities/ecomerce-helpers";
+
+const ModuleHeaderActions = ({ ecomerce, search = false }) => {
+    const router = useRouter();
+    const dispatch = useDispatch();
+    const [cartTotal, setCartTotal] = useState(0);
+    const [wishlistTotal, setWishlistTotal] = useState(0);
+    const [open, setOpen] = React.useState(false);
+    const [openClose, setOpenClose] = React.useState(true);
+
+    // Asignamos Datos al arreglo de Usuarios desde el state
+    const datosusuarios = useSelector((state) => state.userlogged.userlogged);
+    const numberitemswishlist = useSelector((state) => state.wishlist.datawishlist);
+    const numberitemsshoppingcart = useSelector((state) => state.datashoppingcart.datashoppingcart);
+    const activausermenuprimary = useSelector((state) => state.usermenuprimary.usermenuprimary);
+    const activausermenu = useSelector((state) => state.usermenuprimary.usermenu);
+
+    function handleOpenDrawer(e) {
+        e.preventDefault();
+        dispatch(toggleDrawer(true));
+    }
+
+    const handleClick = () => {
+        setOpen((prev) => !prev);
+    };
+
+    const handleClickAway = () => {
+        setOpen(false);
+        setOpenClose(false);
+    };
+
+    useEffect(() => {
+        if (!open) {
+            setOpen(true);
+        }
+    }, [open]);
+
+    const Salir = () => {
+        const auth = getAuth(firebase);
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            router.push("/");
+            console.log("Sesión Cerrada")
+        }).catch((error) => {
+            // An error happened.
+            console.log("Error Cerrando Sesión")
+        });
+    }
+
+    useEffect(() => {
+        const leerItems = async () => {
+            let params = {
+                usuario: datosusuarios.uid,
+            };
+
+            await axios({
+                method: "post",
+                url: URL_BD_MR + "54",
+                params,
+            })
+                .then((res) => {
+                    //console.log("DAT WISH LIST: ", res.data.listaritemdeseos.length);
+                    dispatch(getDataWishList(res.data.listaritemdeseos.length));
+                })
+                .catch(function (error) {
+                    console.log("Error número de productos en lista de deseos");
+                });
+        };
+        leerItems();
+
+        if (ecomerce.cartItems) {
+            setCartTotal(calculateCartQuantity(ecomerce.cartItems));
+        }
+        if (ecomerce.wishlistItems) {
+            setWishlistTotal(caculateArrayQuantity(ecomerce.wishlistItems));
+        }
+    }, []);
+
+    useEffect(() => {
+        const leerItemsCart = async () => {
+            let params = {
+                usuario: datosusuarios.uid,
+            };
+
+            await axios({
+                method: "post",
+                url: URL_BD_MR + "59",
+                params,
+            })
+                .then((res) => {
+                    //console.log("DAT WISH LIST: ", res.data.listaritemdeseos.length);
+                    dispatch(getDataShoppingCart(res.data.listarcarritocompra.length));
+                })
+                .catch(function (error) {
+                    console.log("Error número de productos en carrito de compras");
+                });
+        };
+        leerItemsCart();
+
+        if (ecomerce.cartItems) {
+            setCartTotal(calculateCartQuantity(ecomerce.cartItems));
+        }
+        if (ecomerce.wishlistItems) {
+            setWishlistTotal(caculateArrayQuantity(ecomerce.wishlistItems));
+        }
+    }, [numberitemswishlist]);
+
+    // view
+    let searchBtnView;
+    if (search) {
+        searchBtnView = (
+            <li>
+                <a className="header__action" href="#">
+                    <i className="icon-magnifier"></i>
+                </a>
+            </li>
+        );
+    }
+
+    const reiniciarCtr = () => {
+        localStorage.setItem(
+            "contrview",
+            JSON.stringify(0)
+        );
+    }
+
+    useEffect(() => {
+        if (activausermenuprimary)
+            dispatch(getUserMenu(false));
+    }, [activausermenuprimary]);
+
+    const habilitarMenuUser = () => {
+        setOpenClose(true);
+        dispatch(getUserMenuPrimary(true));
+        if (activausermenu)
+            dispatch(getUserMenu(false));
+        else
+            dispatch(getUserMenu(true));
+    }
+
+    return (
+        <ClickAwayListener onClickAway={handleClickAway}>
+            <ul className="header__actions">
+                {searchBtnView}
+                {
+                    datosusuarios.logged ?
+                        (
+                            <div className="apuntador"
+                                onClick={() => habilitarMenuUser()}
+                            >
+                                <Grid container spacing={1}>
+                                    <Grid item xs={1} md={1} lg={1}>
+                                        <AccountCircleIcon
+                                            style={{
+                                                fontSize: 25,
+                                                color: "#2D2E83",
+                                                marginLeft: 5,
+                                                marginTop: 5,
+                                                marginBottom: 0,
+                                            }}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={9} md={9} lg={9}>
+                                        <div className="nameuser"> {datosusuarios.name}</div>
+                                    </Grid>
+                                    <Grid item xs={2} md={2} lg={2}>
+                                        <ExpandMoreIcon
+                                            onClick={() => close()}
+                                            className="apuntador"
+                                            style={{
+                                                fontSize: 25,
+                                                color: "#2D2E83",
+                                                marginLeft: -10,
+                                                marginTop: 5,
+                                                marginBottom: 0,
+                                            }}
+                                        />
+                                    </Grid>
+                                </Grid>
+                            </div>
+                        ) :
+
+                        (
+                            <div className="headercrearcuenta">
+                                <Row className="ps-footer__fax">
+                                    <Col lg={6}>
+                                        <div className="espaciotextocrearcuenta">
+                                            <a className="textocrearcuenta" href="/my-account">
+                                                Crea tu cuenta
+                                            </a>
+                                        </div>
+
+                                    </Col>
+                                    <Col lg={3}>
+                                        <div className="espaciotextocrearcuenta">
+                                            <Link href="/loginaccount">
+                                                <a className="textocrearcuenta">
+                                                    Ingresa
+                                                </a>
+                                            </Link>
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </div>
+                        )
+
+                }
+
+                {
+                    activausermenuprimary && openClose ?
+                        <div className="divmenulateraldos">
+                            <AppMenuUser />
+                        </div>
+                        :
+                        null
+                }
+
+                <li className="ml-10"
+                    onClick={() => reiniciarCtr()}
+                >
+                    <Link href="/shop/wishlist">
+                        <a className="header__action">
+                            <i className="fa fa-heart-o mlmenos20"></i>
+                            <span className="header__action-badge mlmenos10">
+                                {numberitemswishlist ? numberitemswishlist : 0}
+                            </span>
+                        </a>
+                    </Link>
+                </li>
+                <li
+                    onClick={() => reiniciarCtr()}
+                >
+                    <Link href="/shop/shopping-cart">
+                        <a className="header__action">
+                            <i className="icon-cart-empty mlmenos20"></i>
+                            <span className="header__action-badge mlmenos10">
+                                {numberitemsshoppingcart ? numberitemsshoppingcart : 0}
+                            </span>
+                        </a>
+                    </Link>
+                </li>
+            
+
+            
+            </ul>
+        </ClickAwayListener>
+    );
+};
+
+export default connect((state) => state)(ModuleHeaderActions);

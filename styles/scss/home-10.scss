@@ -1,0 +1,158 @@
+@import "utilies/settings";
+
+.ps-home--10 {
+    .ps-banner--full {
+        background-position: 75% center;
+
+        .ps-banner__item {
+            p {
+                color: $color-1st;
+            }
+
+            &::after {
+                background-color: $color-1st;
+                opacity: 0.3;
+            }
+        }
+
+        .ps-banner {
+            min-height: 500px;
+            .ps-banner__title, .ps-banner__desc, .ps-banner__btn {
+                color: white;
+            }
+
+            .ps-banner__btn {
+                img {
+                    filter: brightness(0) invert(1);
+                }
+            }
+
+            .ps-banner__shop {
+                position: relative;
+                z-index: 10;
+            }
+        }
+
+        .ps-banner__group {
+            position: relative;
+            z-index: 10;
+        }
+
+        &::after {
+            content: url("../img/white-gradient.png");
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            z-index: 0;
+            height: 300px;
+        }
+    }
+
+    .ps-promo--mask {
+        border-top: 1px solid $color-border;
+        padding: 80px 0;
+
+        .ps-banner {
+            .ps-banner__persen {
+                top: 5px;
+                bottom: auto;
+                right: 24%;
+                transform: rotate(-25deg);
+                width: 99px;
+                height: 99px;
+                font-size: 30px;
+                line-height: 30px;
+            }
+
+            .ps-banner__btn {
+                font-weight: 500;
+            }
+
+            .ps-banner__title, .ps-banner__btn, .ps-banner__desc {
+                color: $color-1st;
+            }
+        }
+    }
+
+    .ps-section--black-style {
+        border-bottom: 1px solid $color-border;
+        padding: 80px 0;
+
+        .ps-product--standard {
+            .ps-product__price, .ps-product__title {
+                color: $color-1st;
+            }
+
+            .ps-product__del {
+                color: $color-text;
+            }
+        }
+    }
+
+    .ps-section--reviews {
+        padding: 80px 0;
+        margin: 0;
+        .ps-review {
+            .ps-review__name, .ps-review__date {
+                color: $color-1st;
+            }
+        }
+    }
+
+    .ps-section--newsletter {
+        padding: 80px 0;
+    }
+
+    @media (min-width: 768px) {
+        .ps-promo--mask {
+            .ps-banner {
+                .ps-banner__persen {
+                    right: 18%;
+                }
+            }
+        }
+
+        .ps-banner--full {
+            background-position: 60% center;
+
+            .ps-banner__group {
+                position: absolute;
+            }
+
+            .ps-banner {
+                .ps-banner__btn {
+                    color: $color-warning;
+                    img {
+                        filter: invert(60%) sepia(75%) saturate(1000%) hue-rotate(360deg) brightness(100%) contrast(100%);
+                    }
+                }
+
+                .ps-banner__title, .ps-banner__desc {
+                    color: $color-1st;
+                }
+            }
+
+            &::after {
+                height: auto;
+            }
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .ps-promo--mask {
+            .ps-banner {
+                .ps-banner__persen {
+                    width: 133px;
+                    height: 133px;
+                    font-size: 45px;
+                    line-height: 45px;
+                }
+            }
+        }
+
+        .ps-banner--full {
+            background-position: 10% 25%;
+        }
+    }
+}

@@ -1,0 +1,79 @@
+
+    
+    
+        if (ubicacionProducto == 1) setUbicarProductoLatoneria(true);
+        if (ubicacionProducto == 2) setUbicarProductoHabitaculo(true);
+        if (ubicacionProducto == 3) setUbicarProductoMotor(true);
+    
+        setTextoPosicionUbicacionProducto(1);
+        setPosicionUbicacionProd("Exterior");
+        setTextoPosicionUbicacionProducto(2);
+        setPosicionUbicacionProd("Interior");
+        setTextoPosicionUbicacionProducto(3);
+        setPosicionUbicacionProd("Tren Motriz");
+   
+        setUbicacionProducto(1);
+        setUbicarProducto(1);
+        
+        setUbicacionProducto(2);
+        setUbicarProducto(2);
+
+        setTextoUbicacionProducto("Tren Motriz");
+        
+        setUbicacionProducto(3);
+        setUbicarProducto(3);
+        
+        setTextoPosicionUbicacionProducto(4);
+        setTextoPosicionUbicacionProducto(5);
+
+        setPosicionUbicacionProd("Unica selección");
+        setTextoPosicionUbicacionProducto(6);
+        
+        setPosicionUbicacionProd("Exterior - Derecha");
+
+
+        setTextoPosicionHabitaculo(1);
+        setPosicionUbicacionProd("Interior - Consola");
+        
+        setTextoPosicionHabitaculo(2);
+        setPosicionUbicacionProd("Interior - Asientos");
+      
+        setTextoPosicionHabitaculo(3);  
+        setPosicionUbicacionProd("Interior - Habitaculo");
+
+        setSistemaMotorSeleccionado(1);  
+        setSistemaMotorSeleccionado(2);  
+
+
+        if (tipoVehUno == 1) setTextoUbicacionProducto("Exterior - Unica Selección");
+       
+        setSistemaMotorSeleccionado(10); setTextoUbicacionProducto("Tren Motriz - Base"); 
+        setPosicionProducto(11); setTextoUbicacionProducto("Exterior - Izquierdo");       
+        setPosicionProducto(12); setTextoUbicacionProducto("Exterior - Centro");
+        setPosicionProducto(13); setTextoUbicacionProducto("Exterior - Derecha");
+        setPosicionProducto(21); setTextoUbicacionProducto("Interior - Consola");
+        setPosicionProducto(22); setTextoUbicacionProducto("Interior - asiento");
+        setPosicionProducto(23); setTextoUbicacionProducto("Interior - Techo");
+
+        setPosicionProducto(301); setTextoUbicacionProducto("Tren Motriz - Motor");
+        setPosicionProducto(302); setTextoUbicacionProducto("Tren Motriz - Eléctrico Motor");
+        setPosicionProducto(303); setTextoUbicacionProducto("Tren Motriz - Suspensión");
+        setPosicionProducto(304); setTextoUbicacionProducto("Tren Motriz - Sistema Eléctrico");   
+        setPosicionProducto(305); setTextoUbicacionProducto("Tren Motriz - Frenos");
+        setPosicionProducto(306); setTextoUbicacionProducto("Tren Motriz - Inyección");
+        setPosicionProducto(307); setTextoUbicacionProducto("Tren Motriz - Embrague");
+        setPosicionProducto(308); setTextoUbicacionProducto("Tren Motriz - Refrigeración");
+        setPosicionProducto(309); setTextoUbicacionProducto("Tren Motriz - Dirección");
+        setPosicionProducto(310); setTextoUbicacionProducto("Tren Motriz - Caja");
+        setPosicionProducto(311); setTextoUbicacionProducto("Tren Motriz - Caja");
+        setPosicionProducto(312); setTextoUbicacionProducto("Tren Motriz - Transmisión");
+        setPosicionProducto(313); setTextoUbicacionProducto("Tren Motriz - Aire Acondicionado");
+        setPosicionProducto(314);  setTextoUbicacionProducto("Tren Motriz - Arranque");
+        setPosicionProducto(315); setTextoUbicacionProducto("Tren Motriz - Escape");
+        setPosicionProducto(316); setTextoUbicacionProducto("Tren Motriz - Parabrisas");
+ 
+        
+
+        
+        
+    

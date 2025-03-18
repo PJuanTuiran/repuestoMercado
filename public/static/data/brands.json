@@ -1,0 +1,44 @@
+{
+    "brands": [
+        {
+            "image": "/static/img/branch/brand-1.jpg",
+            "text": "BMW"
+        },
+        {
+            "image": "/static/img/branch/brand-2.jpg",
+            "text": "Mazda"
+        },
+        {
+            "image": "/static/img/branch/brand-3.jpg",
+            "text": "Chevrolet"
+        },
+        {
+            "image": "/static/img/branch/brand-4.jpg",
+            "text": "Hyundai"
+        },
+        {
+            "image": "/static/img/branch/brand-5.jpg",
+            "text": "Ford"
+        },
+        {
+            "image": "/static/img/branch/brand-6.jpg",
+            "text": "Renault"
+        },
+        {
+            "image": "/static/img/branch/brand-7.jpg",
+            "text": "volkswagen"
+        },
+        {
+            "image": "/static/img/branch/brand-8.jpg",
+            "text": "Mercedes-Benz"
+        },
+        {
+            "image": "/static/img/branch/brand-9.jpg",
+            "text": "Audi"
+        },
+        {
+            "image": "/static/img/branch/brand-10.jpg",
+            "text": "Toyota"
+        }
+    ]
+}

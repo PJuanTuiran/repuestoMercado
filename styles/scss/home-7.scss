@@ -1,0 +1,187 @@
+@import "utilies/settings";
+.ps-home--7 {
+    .ps-banner {
+        .ps-banner__persen {
+            position: initial;
+            margin: auto;
+            width: 120px;
+            height: 120px;
+            line-height: 120px;
+            font-size: 36px;
+        }
+
+        .ps-banner__title {
+            margin-bottom: 25px;
+        }
+
+        .ps-banner__desc {
+            margin-bottom: 35px;
+        }
+
+        .ps-banner__btn {
+            font-size: 18px;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 15px;
+            color: $color-1st;
+        }
+
+        .ps-banner__baged {
+            text-align: center;
+            margin-bottom: 25px;
+            strong {
+                background-color: $color-success;
+                color: white;
+                border-radius: 40px;
+                font-size: 12px;
+                line-height: 17px;
+                padding: 0 10px;
+            }
+        }
+
+        .ps-banner__btn-group {
+            text-align: center;
+            display: block;
+        }
+    }
+
+    .ps-home7--promo {
+        padding: 60px 0;
+        background-position: center right;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-bottom: 50px;
+
+        .ps-banner {
+            height: max-content;
+            min-height: 320px;
+            .ps-banner__baged {
+                text-align: left;
+                strong {
+                    background-color: $color-pink;
+                }
+            }
+            .ps-banner__title, .ps-banner__desc {
+                color: $color-pink;
+            }
+        }
+    }
+
+    .ps-about--info {
+        padding: 30px 0 80px;
+    }
+
+    .ps-about--video {
+        border-bottom: 1px solid $color-border;
+        padding: 50px 0 80px;
+    }
+
+    .ps-reviews--2 {
+        padding: 80px 0;
+        .ps-section__title {
+            text-align: center;
+        }
+
+        .owl-dots {
+            display: none;
+        }
+    }
+
+    .ps-home__block {
+        padding: 80px 0;
+        border-bottom: 1px solid $color-border;
+
+        .ps-section__title {
+            text-align: left;
+        }
+
+        .ps-form__control {
+            display: block;
+        }
+
+        .ps-input {
+            width: 100%;
+        }
+
+        .ps-btn {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+    }
+
+    .ps-section--instagram {
+        padding: 80px 0;
+    }
+
+    .ps-section--newsletter {
+        background-position: 10% center;
+        padding: 30px 0 60px;
+    }
+
+    .ps-section--choose-style {
+        padding: 80px 0;
+    }
+
+    @media (min-width: 768px) {
+        .ps-about--video {
+            .ps-banner {
+                .ps-banner__block {
+                    display: flex;
+                }
+
+                .ps-banner__content {
+                    width: 50%;
+                    text-align: left;
+                    flex: 0 0 50%;
+                }
+
+                .ps-banner__thumnail {
+                    flex: 0 0 50%;
+                }
+
+                .ps-banner__btn-group {
+                    text-align: left;
+                }
+            }
+        }
+
+        .ps-banner {
+            .ps-banner__content {
+                padding-top: 0;
+            }
+        }
+
+        .ps-home__block {
+            .ps-home__row {
+                display: flex;
+            }
+
+            .ps-home__blog {
+                flex: 0 0 50%;
+                padding-right: 9%;
+                border-right: 1px solid $color-border;
+            }
+
+            .ps-home__newsletter {
+                flex: 0 0 50%;
+                padding-left: 9%;
+            }
+        }
+    }
+
+    @media (min-width: 1028px) {
+        .ps-banner {
+            .ps-banner__title {
+                font-size: 70px;
+                line-height: 84px;
+            }
+            .ps-banner__desc {
+                font-size: 24px;
+            }
+        }
+
+        .ps-home7--promo {
+            padding: 180px 0;
+        }
+    }
+}

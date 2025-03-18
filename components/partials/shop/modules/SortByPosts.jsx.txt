@@ -1,0 +1,37 @@
+import React, { useState } from "react";
+import { Box, Grid } from "@mui/material";
+import { Dropdown } from '@mui/base/Dropdown';
+import { Menu } from '@mui/base/Menu';
+import { MenuButton } from '@mui/base/MenuButton';
+import { MenuItem, menuItemClasses } from '@mui/base/MenuItem';
+import { styled } from '@mui/system';
+
+export default function MenuIntroduction(props) {
+    const { orderPrice, setOrderPrice } = props;
+    const [titulo, setTitulo] = useState("Ordenar por");
+  const createHandleMenuClick = (menuItem) => {
+    return () => {
+      console.log(`Clicked on ${menuItem}`);
+    };
+  };
+
+  return (
+    <Dropdown className="divsearchinteractiveselectposts"
+    onMouseOver={createHandleMenuClick}
+    >
+      <MenuButton
+       variant="outline-light"
+      className="divsearchinteractiveselectposts sinborde"
+      >{titulo}</MenuButton>
+      <Menu >
+        <MenuItem onClick={createHandleMenuClick('Profile')}>Profile</MenuItem>
+        <MenuItem onClick={createHandleMenuClick('Language settings')}>
+          Language settings
+        </MenuItem>
+        <MenuItem onClick={createHandleMenuClick('Log out')}>Log out</MenuItem>
+      </Menu>
+    </Dropdown>
+  );
+}
+
+

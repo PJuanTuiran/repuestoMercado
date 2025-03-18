@@ -1,0 +1,394 @@
+@import "utilies/settings";
+.ps-home--14 {
+    .ps-section--banner {
+        margin-left: -15px;
+        margin-right: -15px;
+        padding-bottom: 30px;
+        .ps-promo {
+            .ps-promo__item {
+                background-color: $color-green;
+            }
+
+            .ps-promo__badge {
+                color: $color-dark;
+            }
+
+            .ps-promo__sale {
+                background-color: $color-warning;
+                color: white;
+                transform: translate(20%, -65%);
+                position: absolute;
+                top: 50%;
+                left: 100%;
+                width: 90px;
+                height: 90px;
+                border-radius: 50%;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .ps-promo__content {
+                transform: translate(0, 0);
+                top: 0;
+                padding: 40px;
+            }
+        }
+
+        .ps-banner {
+            height: auto;
+            min-height: 300px;
+            .ps-banner__imagebg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .ps-banner__content {
+                padding: 80px 40px;
+                height: auto;
+                text-align: left;
+                position: relative;
+                z-index: 1;
+            }
+
+            .ps-banner__price {
+                del {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .ps-promo--home {
+        padding-bottom: 50px;
+        .ps-promo__btn {
+            display: none;
+        }
+
+        .ps-promo__meta {
+            margin-bottom: 0;
+        }
+
+        .ps-promo__title {
+            color: $color-dark;
+        }
+    }
+
+    .ps-section--latest-horizontal {
+        padding: 30px 0 80px;
+        .ps-section__title {
+            color: $color-dark;
+        }
+    }
+
+    .ps-product--standard {
+        .ps-product__title, .ps-product__del {
+            color: $color-dark;
+        }
+
+        .ps-product__footer {
+            color: $color-dark;
+            span {
+                color: $color-dark;
+            }
+        }
+
+        .ps-product__percent {
+            background-color: $color-dark;
+        }
+
+        .ps-product__price {
+            color: $color-dark;
+            &.sale {
+                color: $color-warning;
+            }
+        }
+    }
+
+    .ps-section--deals {
+        .ps-section__title {
+            color: $color-dark;
+        }
+    }
+
+    .ps-section--latest {
+        margin: 30px 0 50px;
+        .ps-section__title {
+            color: $color-dark;
+        }
+    }
+
+    .owl-dots {
+        .owl-dot.active {
+            background-color: $color-dark;
+        }
+    }
+
+    .owl-nav {
+        button {
+            &:hover {
+                background-color: $color-dark !important;
+            }
+        }
+    }
+
+    .ps-home__block {
+        padding: 30px 0 80px;
+        .ps-section--newsletter {
+            background-color: $color-info;
+            background-image: none;
+            padding: 30px 15px;
+            border-radius: 4px;
+
+            .ps-section__title {
+                color: $color-dark;
+                text-align: left;
+                font-size: 20px;
+                line-height: 30px;
+                margin-bottom: 15px;
+            }
+
+            .ps-section__text {
+                font-size: 14px;
+                margin-bottom: 20px;
+                color: $color-dark;
+            }
+
+            .ps-form__control {
+                max-width: 100%;
+            }
+        }
+
+        .ps-blog--latset {
+            margin-bottom: 30px;
+            .ps-blog__badge {
+                display: none;
+            }
+
+            .ps-blog__content {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                background-color: white;
+                width: 88%;
+                padding: 20px;
+                border-radius: 4px;
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            .ps-blog__date, .ps-blog__author {
+                color: $color-dark;
+            }
+
+            .ps-blog__meta {
+                margin-bottom: 0;
+            }
+
+            .ps-blog__title {
+                font-size: 18px;
+                color: $color-dark;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .ps-section--deals {
+        padding: 30px 0 50px;
+    }
+
+    .ps-product--type {
+        padding: 30px 0 50px;
+    }
+
+    @media (min-width: 768px) {
+
+        .ps-section--banner {
+            margin-left: 0;
+            margin-right: 0;
+            padding-bottom: 23px;
+
+            .ps-banner {
+                min-height: 280px !important;
+                border-radius: 4px;
+                overflow: hidden;
+                .ps-banner__content {
+                    padding: 20px;
+                    width: 80%;
+                    flex: 0 0 80%;
+                    padding: 30px 40px;
+                }
+            }
+
+            .ps-promo {
+                height: 100%;
+                border-radius: 4px;
+                overflow: hidden;
+                .ps-promo__content {
+                    padding: 20px;
+                }
+
+                .ps-promo__sale {
+                    left: 70%;
+                }
+            }
+        }
+
+        .ps-promo--horizontal {
+            padding-top: 30px;
+
+            .ps-promo__meta {
+                display: flex;
+            }
+
+            .ps-promo__del {
+                margin-bottom: 0;
+                margin-left: 10px;
+                font-size: 14px;
+                line-height: 18px;
+            }
+
+            .ps-promo__price {
+                font-size: 16px;
+                line-height: 20px;
+            }
+
+            .ps-promo__content {
+                padding: 20px;
+            }
+        }
+
+        .ps-home__block {
+            .ps-blog--latset {
+                height: 100%;
+                margin-bottom: 0;
+
+                .ps-blog__thumbnail {
+                    height: 100%;
+
+                    a, img {
+                        height: 100%;
+                    }
+                }
+                .ps-blog__content {
+                    width: 70%;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 992px) {
+        .ps-section--banner {
+             padding-bottom: 30px;
+            .ps-promo {
+                .ps-promo__sale {
+                    font-size: 25px;
+                }
+            }
+
+            .ps-banner {
+                .ps-banner__content {
+                    padding: 60px 40px;
+                }
+            }
+        }
+
+        .col-lg-2dot4 {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 20%;
+            flex: 0 0 20%;
+            max-width: 20%;
+        }
+
+        .ps-home__block {
+            .ps-section--newsletter {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .ps-blog--latset {
+                .ps-blog__content {
+                    width: 50%;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .ps-home__block {
+            .ps-section--newsletter {
+                padding: 60px 40px;
+                .ps-section__title {
+                    font-size: 30px;
+                    line-height: 40px;
+                }
+
+                .ps-section__text {
+                    font-size: 16px;
+                }
+            }
+
+            .ps-blog--latset {
+                .ps-blog__content {
+                    padding: 40px;
+                }
+            }
+        }
+
+        .ps-section--banner {
+            .ps-promo {
+                .ps-promo__name {
+                    font-size: 30px;
+                }
+
+                .ps-promo__content {
+                    padding: 40px;
+                }
+
+                .ps-promo__sale {
+                    left: 100%;
+                    top: 60%;
+                }
+            }
+
+            .ps-banner {
+                .ps-banner__title {
+                    font-size: 50px;
+                    line-height: 60px;
+                }
+
+                .ps-banner__content {
+                    padding: 80px 60px;
+                }
+
+                .ps-banner__desc  {
+                    font-size: 22px;
+                }
+            }
+        }
+
+        .ps-promo--horizontal  {
+            .ps-promo__name {
+                font-size: 20px;
+            }
+
+            .ps-promo__price {
+                font-size: 18px;
+            }
+
+            .ps-promo__del {
+                font-size: 16px;
+            }
+
+            .ps-promo__content {
+                padding: 40px;
+            }
+        }
+    }
+}

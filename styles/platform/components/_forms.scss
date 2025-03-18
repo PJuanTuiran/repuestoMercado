@@ -1,0 +1,47 @@
+.ps-form--checkout {
+    .form-control {
+        height: 46px;
+        border-radius: 25px;
+        background-color: $color-gray-light;
+        border-color: $color-gray-light;
+    }
+
+    textarea.form-control {
+        height: auto;
+        padding: 30px 20px;
+    }
+
+    .form-group {
+        label {
+            color: $color-1st;
+        }
+    }
+
+    .ps-form__heading {
+        font-size: 18px;
+        color: $color-1st;
+    }
+
+    @media screen and (min-width: 992px) {
+        padding: 30px;
+        border: 1px solid $color-gray-light;
+        border-radius: 4px;
+        .ps-form__heading {
+            font-size: 30px;
+        }
+    }
+}
+
+.ps-form--newsletter {
+    @media screen and (max-width: 480px) {
+        .input-group {
+            display: flex;
+            flex-flow: column nowrap;
+            input {
+                display: block;
+                height: 56px;
+                margin-bottom: 16px;
+            }
+        }
+    }
+}
